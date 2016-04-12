@@ -16,7 +16,7 @@ with open("scripts/simd_fpu.rc",'r+') as rcFile:
 				#line = line[30:33]
 				#print l
 				line =line.replace("low", "high")
-				print "low replaced"
+				print "Effort Level High"
 				#print l
 			outrcFile.write(line)
 ###################################
@@ -47,7 +47,7 @@ with open("dlog34",'r') as logFile:
 		 l = logFile.next()
 		 l = l[2: l.find("p")]
            	 print l;            
-
+RC_T = l
 
 ###################################
 #   Read Encounter log and output results
@@ -61,18 +61,23 @@ with open("denc.log",'r') as logFile:
 			while n !=  6:
 		  		l = logFile.next()
 		   		n = n+1;
-				l = l[23: 29]
-		   
-          	   	print l; 
-		    	break;
+			l = l[24: 29]
+		   	print l; 
+			l = l[24: 29]
+			print l;
+			EN_T = l
+			break;
+		
 	           
 ###################################
 #   Print results to CSV file
 ###################################   
 f = open("scripts/enc_results.csv", 'w')
-RESULT = ['apple','cherry','orange','pineapple','strawberry']	
+
+HEADINGS = ["T(RC)", "T(Enc)"]	
+RESULTS = [RC_T, EN_T]
 c = csv.writer(f, dialect='excel')
 
-c.writerow(RESULT)
-
+c.writerow(HEADINGS)
+c.writerow(RESULTS)
 
