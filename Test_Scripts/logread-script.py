@@ -58,11 +58,10 @@ with open("denc.log",'r') as logFile:
 	for line in logFile:
 		if line.startswith("          timeDesign Summary"):
         		n = 0;
-		 
-		  	while n !=  6:
+			while n !=  6:
 		  		l = logFile.next()
 		   		n = n+1;
-				l = l[24: 29]
+				l = l[23: 29]
 		   
           	   	print l; 
 		    	break;
