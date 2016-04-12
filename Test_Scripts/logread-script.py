@@ -54,20 +54,18 @@ with open("dlog34",'r') as logFile:
 ###################################
  
 with open("denc.log",'r') as logFile:
-    print "file open, R mode"
-    for line in logFile:
-        	if line.startswith("          timeDesign Summary"):
-		 n = 0;
-		 while n !=  6:
-		  l = logFile.next()
-	          if line.startswith(""):
-		   print "Slack"
-		   n = n+1;
-		  #while n == 0:
-          	   print "Slack"
-               		
-		   l = l[2: l.find("8")]
-           	   print l;         
+	print "file open, R mode"
+	for line in logFile:
+		if line.startswith("          timeDesign Summary"):
+        		n = 0;
+		 
+		  	while n !=  6:
+		  		l = logFile.next()
+		   		n = n+1;
+				l = l[24: 29]
+		   
+          	   	print l; 
+		    	break;
 	           
 ###################################
 #   Print results to CSV file
